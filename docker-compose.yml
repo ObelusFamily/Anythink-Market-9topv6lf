@@ -8,6 +8,7 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3000
+      - OPENAI_API_KEY=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
       - MONGODB_URI=mongodb://mongodb-node:27017/anythink-market
       - GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN=${GITHUB_CODESPACES_PORT_FORWARDING_DOMAIN}
     working_dir: /usr/src
@@ -46,7 +47,7 @@ services:
     volumes:
       - ~/mongo/data:/data/db
     ports:
-      - '27017:27017'
+      - "27017:27017"
 
   anythink-ack:
     build: ./frontend
@@ -56,4 +57,4 @@ services:
     volumes:
       - ./:/usr/src/
     depends_on:
-      - "anythink-frontend-react" 
+      - "anythink-frontend-react"
